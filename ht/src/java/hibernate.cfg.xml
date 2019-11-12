@@ -43,7 +43,7 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">pass123</property>
+    <property name="hibernate.connection.password">Danipani12</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb?zeroDateTimeBehavior=convertToNull</property>
     <mapping resource="POJOS/Habitacion.hbm.xml"/>
     <mapping resource="POJOS/Hotel.hbm.xml"/>
