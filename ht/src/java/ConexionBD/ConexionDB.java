@@ -82,7 +82,7 @@ public class ConexionDB {
     }
     public static void main(String[] args){
         ConexionDB cn = new ConexionDB("root","pass123");
-        String nombreH = "Hotel Realeza";
+        String nombreH = "Oz Resort";
         ResultSet rs2 =Consulta(cn,"Select idHotel From hotel where nombre = '"+nombreH+"'");
         
         try {
