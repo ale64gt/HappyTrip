@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/11/2019 09:44:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Imagen" table="Imagen" catalog="mydb" optimistic-lock="version">
+        <id name="idImagen" type="java.lang.Integer">
+            <column name="idImagen" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="habitacion" class="POJOS.Habitacion" fetch="select">
+            <column name="Habitacion_habitacion" />
+        </many-to-one>
+        <many-to-one name="hotel" class="POJOS.Hotel" fetch="select">
+            <column name="Hotel_idHotel" not-null="true" />
+        </many-to-one>
+        <property name="url" type="string">
+            <column name="URL" length="300" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

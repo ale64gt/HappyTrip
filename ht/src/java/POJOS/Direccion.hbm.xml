@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/11/2019 09:44:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Direccion" table="Direccion" catalog="mydb" optimistic-lock="version">
+        <id name="idDireccion" type="java.lang.Integer">
+            <column name="idDireccion" />
+            <generator class="identity" />
+        </id>
+        <property name="pais" type="string">
+            <column name="pais" length="45" not-null="true" />
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="45" not-null="true" />
+        </property>
+        <set name="hotels" table="Hotel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Direccion_idDireccion" not-null="true" />
+            </key>
+            <one-to-many class="POJOS.Hotel" />
+        </set>
+    </class>
+</hibernate-mapping>

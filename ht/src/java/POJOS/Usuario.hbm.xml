@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/11/2019 09:44:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Usuario" table="Usuario" catalog="mydb" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="idUsuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="100" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FechaNacimiento" length="10" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="Correo" length="100" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="100" not-null="true" />
+        </property>
+        <set name="tarjetases" table="Tarjetas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="POJOS.Tarjetas" />
+        </set>
+        <set name="reservacions" table="Reservacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="POJOS.Reservacion" />
+        </set>
+    </class>
+</hibernate-mapping>

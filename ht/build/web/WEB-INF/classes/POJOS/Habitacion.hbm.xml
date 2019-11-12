@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/11/2019 09:44:00 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Habitacion" table="Habitacion" catalog="mydb" optimistic-lock="version">
+        <id name="idHabitacion" type="java.lang.Integer">
+            <column name="idHabitacion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="hotel" class="POJOS.Hotel" fetch="select">
+            <column name="Hotel_idHotel" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoHabitacion" class="POJOS.TipoHabitacion" fetch="select">
+            <column name="Tipo_Habitacion_idTipo_Habitacion" not-null="true" />
+        </many-to-one>
+        <property name="disponibilidad" type="string">
+            <column name="Disponibilidad" length="45" not-null="true" />
+        </property>
+        <property name="precio" type="java.lang.Integer">
+            <column name="Precio" />
+        </property>
+        <set name="imagens" table="Imagen" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Habitacion_habitacion" />
+            </key>
+            <one-to-many class="POJOS.Imagen" />
+        </set>
+        <set name="reservacions" table="Habitacion_has_Reservacion" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Habitacion_idHabitacion" not-null="true" />
+            </key>
+            <many-to-many entity-name="POJOS.Reservacion">
+                <column name="Reservacion_idReservacion" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
