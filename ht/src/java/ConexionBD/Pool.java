@@ -66,14 +66,13 @@ public class Pool {
         }
     }
     
-    public static ResultSet Consulta(ConexionDB conex,String consulta){
+    public static ResultSet Consulta(Pool pool,String consulta){
         
-        Statement st;
         ResultSet rs;
         ResultSet resultado = null;
         try {
-            st = conex.con.createStatement();
-            rs = st.executeQuery(consulta);
+            
+            rs = pool.command.executeQuery(consulta);
             
             resultado = rs;
             
@@ -84,17 +83,12 @@ public class Pool {
         return resultado;
         
     }
-    public static void Insert(ConexionDB conex,String consulta){
-        
-        Statement st;
-        
-        
-        try {
-            st = conex.con.createStatement();
-            st.executeUpdate(consulta);
+    public static void Insert(Pool pool,String consulta){
             
+            try {
             
-            
+            pool.command.executeUpdate(consulta);
+               
             
         } catch (SQLException ex) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,13 +97,12 @@ public class Pool {
         
     }
     
-    public static boolean Borrar(ConexionDB conex,String consulta){
+    public static boolean Borrar(Pool pool,String consulta){
         
-        Statement st;
         boolean resultado = false;
         try {
-            st = conex.con.createStatement();
-            resultado = st.execute(consulta);
+
+            resultado = pool.command.execute(consulta);
             
             
         } catch (SQLException ex) {
@@ -131,20 +124,30 @@ public class Pool {
         int maxConnections = 101;
 
         Pool pool = new Pool(driver, user, password, url, minConnections, maxConnections);
-
-        for (int x = 0; x < 15; x++) {
+            /*
             pool.Connect();
             try {
-                ResultSet rs = pool.command.executeQuery("Select * From tbltest");
+                ResultSet rs = pool.command.executeQuery("Select nombre From hotel");
                 while (rs.next()) {
-                    System.out.println(rs.getString(1) + " || " + rs.getString(2));
+                    System.out.println(rs.getString(1));
                 }
             } catch (SQLException ex) {
                 System.err.println("Error    ::    " + ex);
             }finally{
                   pool.Disconnect();
             }
-          
-        }
+            */
+            String nombreH = "Oz Resort";
+            pool.Connect();
+            ResultSet rs2 =Consulta(pool,"Select idHotel From hotel where nombre = '"+nombreH+"'");
+            try {
+            while(rs2.next()){
+                System.out.println(rs2.getInt("idHotel"));
+            }
+            pool.Disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+        
+    }
     }
 }
