@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 
 public class ConexionDB {
-    Connection con;
+   /* Connection con;
     public ConexionDB(String usuario, String pass){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -94,5 +94,5 @@ public class ConexionDB {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
+    }*/
 }
