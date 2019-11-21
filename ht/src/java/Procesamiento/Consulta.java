@@ -204,5 +204,42 @@ public class Consulta {
         
         
     }
+    public String consultarHotelesPais(String pais){
+        
+        
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String user = "root";
+        String password = "pass123";
+        int minConnections = 100;
+        int maxConnections = 101;
+        JSONArray json = null;
+
+        Pool pool = new Pool(driver, user, password, url, minConnections, maxConnections);
+            
+            
+            pool.Connect();
+            ResultSet rs2 =Consulta(pool,"Select  *  from hotel inner join Direccion on Direccion_idDireccion = idDireccion inner join Imagen on idHotel = Hotel_idHotel where idhotel != 15 and pais ='"+pais+"'");
+            
+            
+            
+            try {
+                Jsonify jsonmaker = new Jsonify();
+            json = jsonmaker.convert(rs2);
+            System.out.println(json);
+            
+            pool.Disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+        
+    }   catch (JSONException ex) {
+            Logger.getLogger(Pool.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    return json.toString(); 
+        
+        
+        
+    }
     
 }

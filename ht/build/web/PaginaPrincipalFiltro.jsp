@@ -21,9 +21,9 @@
 
     <%! String baseDeDatos1 = "";%>
         <%
-            
+            String value=request.getParameter("pais");
             Consulta consultar = new Consulta();
-            baseDeDatos1 = consultar.consultarHoteles(); 
+            baseDeDatos1 = consultar.consultarHotelesPais(value); 
             
         %>
     
@@ -113,9 +113,7 @@
                 <h1>BIENVENIDO A HAPPYTRIP</h1>   
             </div> 
             <div class="barra">
-                <button class="btn btn-primary" style=" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-bottom: 4px" >Buscar</button>
-                
-                
+                <button  class="btn btn-primary" style=" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-bottom: 4px" >Buscar</button>
                 <input type="text" name="search" placeholder="Search..">
                 <a href="reservacionesVista.jsp" style="font-family: 'Alata';font-size: 18px">Reservaciones</a>
                 <a href="#" style="font-family: 'Alata';font-size: 18px">Recomendados</a>
@@ -158,4 +156,3 @@
 <br>
 
 </html>
-
