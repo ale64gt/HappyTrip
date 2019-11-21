@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 20, 2019, 2:52:18 AM
+    Author     : carlo
+*/
+
+
+input[type=texts] {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #336180;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.Registro{
+    
+    border-radius: 15px 15px 15px;
+    border: 2px solid #336180;
+    background-color: whitesmoke;
+    padding: 40px 10px;
+    width: 480px;
+    height: 540px;
+    top: -45%;
+    left: 50%;
+}
+.Registrar1{
+    border-radius: 15px 15px 15px;
+    border: 2px solid #336180;
+    background-color: whitesmoke;
+    padding: 40px 10px;
+    width: 480px;
+    height: 540px;
+    top: -45%;
+    left:50%;
+}

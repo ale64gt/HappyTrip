@@ -5,6 +5,7 @@
  */
 package ConexionBD;
 
+import Procesamiento.Jsonify;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class Pool {
 
@@ -136,17 +139,30 @@ public class Pool {
                   pool.Disconnect();
             }
             */
-            String nombreH = "Oz Resort";
+            String id = "4";
             pool.Connect();
-            ResultSet rs2 =Consulta(pool,"Select idHotel From hotel where nombre = '"+nombreH+"'");
+            ResultSet rs2 =Consulta(pool,"Select  *  from hotel inner join Direccion on Direccion_idDireccion = idDireccion inner join Imagen on idHotel = Hotel_idHotel where idhotel != 15 and idHotel = '"+id+"'");
+            
+            
+            
             try {
+                Jsonify jsonmaker = new Jsonify();
+            JSONArray json = jsonmaker.convert(rs2);
+            System.out.println(json.toString());
             while(rs2.next()){
-                System.out.println(rs2.getInt("idHotel"));
+                System.out.println(rs2.getInt("idHabitacion"));
+                System.out.println(rs2.getString("Disponibilidad"));
+                System.out.println(rs2.getInt("Tipo_Habitacion_idTipo_Habitacion"));
+                System.out.println(rs2.getInt("Precio"));
+                System.out.println(rs2.getInt("idTipo_Habitacion"));
+                System.out.println(rs2.getString("Tipo_Habitacioncol"));
             }
             pool.Disconnect();
         } catch (SQLException ex) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
         
-    }
+    }   catch (JSONException ex) {
+            Logger.getLogger(Pool.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
