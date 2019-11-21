@@ -1,10 +1,7 @@
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="ConexionBD.*"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
 
+<%@page import="Procesamiento.Consulta" %>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,12 +13,13 @@
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
     </head>
     <body>
-       <%--
+       <%
             String toInsert = "";
-            ConexionDB conn = new ConexionDB("root","1234");
-            String consul = "select h.idHotel, hab.idHabitacion, u.Nombre,h.Nombre,th.Tipo_habitacioncol,r.CheckIn,r.CheckOut from reservacion r,usuario u,hotel h,tipo_habitacion th, habitacion_has_reservacion hr, habitacion hab where r.Usuario_idUsuario = u.idUsuario AND r.idReservacion = hr.Reservacion_idReservacion AND hab.idHabitacion = hr.Habitacion_idHabitacion AND hab.Tipo_habitacion_idTipo_habitacion = th.idTipo_habitacion AND hab.Hotel_idHotel = h.idHotel";
-            ResultSet resultado = ConexionBD.ConexionDB.Consulta(conn,consul);
-            --%>
+            
+            Consulta consultar = new Consulta();
+            ResultSet resultado = consultar.conultaReservaciones();
+            
+            %>
             <div class="container">
             <form>
             <div class="header">
@@ -50,11 +48,12 @@
                             <th scope="col">Mostrar Habitacion</th>
                         </tr>
                        </thead>
-                       <%--
+                       
                         <%
                             while(resultado.next()){
                         
                         %>
+                        
                         <tr>
                             <td><%= resultado.getString("u.Nombre") %></td>
                             <td><%= resultado.getString("h.Nombre")%></td>
@@ -62,13 +61,13 @@
                             <td><%= resultado.getString("r.CheckIn") %></td>
                             <td><%= resultado.getString("r.CheckOut") %></td>
                             <td>
-                                <a href="newjsp.jsp?id=<%=resultado.getInt("h.idHotel")%>">Ver Hotel</a>
+                                <a href="HotelVista.jsp?numero=<%=resultado.getInt("h.idHotel")%>">Ver Hotel</a>
                             </td>
                             <td>
-                                 <a href="newjsp.jsp?id=<%=resultado.getInt("hab.idHabitacion")%>">Ver Habitacion</a>
+                                 <a href="habitacionVista.jsp?numero=<%=resultado.getInt("hab.idHabitacion")%>">Ver Habitacion</a>
                             </td>
                             <% }%>
-                            --%>
+                            
                         </tr>
                     </table>                 
                 </div>

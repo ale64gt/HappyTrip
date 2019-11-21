@@ -124,7 +124,7 @@
             <div class="barra">
                 <button  class="btn btn-primary" style=" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-bottom: 4px" >Buscar</button>
                 <input type="text" name="search" placeholder="Search..">
-                <a href="#" style="font-family: 'Alata';font-size: 18px">Reservaciones</a>
+                <a href="reservacionesVista.jsp" style="font-family: 'Alata';font-size: 18px">Reservaciones</a>
                 <a href="#" style="font-family: 'Alata';font-size: 18px">Recomendados</a>
             </div>
             
@@ -166,10 +166,12 @@
                     <button  class="btn btn-primary" onclick="javascript:abrir('Reservar.jsp?numero=<%=value%>')" style=" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-top: 5px; text-align: center; margin: 8px 0" >Reservar</button>
                     
                     <script>
-function abrir(url) {
-open(url,'','top=100,left=500,width=360,height=730') ;
-}
-</script>
+                        function abrir(url) {
+                        open(url,'','top=100,left=500,width=360,height=730') ;
+                        }
+                    </script>
+                    
+
                     </div>
                 </div>
                 

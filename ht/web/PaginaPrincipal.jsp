@@ -115,7 +115,7 @@
             <div class="barra">
                 <button  class="btn btn-primary" style=" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-bottom: 4px" >Buscar</button>
                 <input type="text" name="search" placeholder="Search..">
-                <a href="#" style="font-family: 'Alata';font-size: 18px">Reservaciones</a>
+                <a href="reservacionesVista.jsp" style="font-family: 'Alata';font-size: 18px">Reservaciones</a>
                 <a href="#" style="font-family: 'Alata';font-size: 18px">Recomendados</a>
             </div>
             <div class="slider" style="margin-top: 10px ">

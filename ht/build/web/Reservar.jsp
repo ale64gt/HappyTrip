@@ -27,7 +27,7 @@
             <div class="container" >
                 <div class="Registrar" >
                     <h1 style="padding-top:10px; text-align: center; width: 100%;"> Reservar Habitacion </h1>
-                     <form  method="post" action = "ReservacionSer">
+                     <form  >
                         
                          <label> Nombre Completo: <input type="texts" name="nc"/><br> </label>
                           

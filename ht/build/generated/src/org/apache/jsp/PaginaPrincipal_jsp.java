@@ -163,7 +163,7 @@ public final class PaginaPrincipal_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("            <div class=\"barra\">\n");
       out.write("                <button  class=\"btn btn-primary\" style=\" background-color: #74818A; border-color: #74818A; font-family: 'Alata';font-size: 18px;margin-bottom: 4px\" >Buscar</button>\n");
       out.write("                <input type=\"text\" name=\"search\" placeholder=\"Search..\">\n");
-      out.write("                <a href=\"#\" style=\"font-family: 'Alata';font-size: 18px\">Reservaciones</a>\n");
+      out.write("                <a href=\"reservacionesVista.jsp\" style=\"font-family: 'Alata';font-size: 18px\">Reservaciones</a>\n");
       out.write("                <a href=\"#\" style=\"font-family: 'Alata';font-size: 18px\">Recomendados</a>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"slider\" style=\"margin-top: 10px \">\n");
